@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AR 3D Modeling</title>
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <style>
+    /* Add any CSS styles here if needed */
+    .directionButton {
+      display: inline-block;
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <a-scene embedded arjs="sourceType: webcam;">
+    <a-marker preset="hiro">
+      <a-entity id="defaultCube" position="0 0 0">
+        <a-box scale="0.2 0.2 0.2" color="red"></a-box> <!-- Default cube on the marker -->
+      </a-entity>
+    </a-marker>
+    <a-entity id="cubesGroup"></a-entity> <!-- Container for the cubes -->
+    <a-light type="directional" color="#ffffff" intensity="2" position="2 4 -3"></a-light>
+  </a-scene>
+  <button class="directionButton" data-direction="right">Right</button>
+  <button class="directionButton" data-direction="left">Left</button>
+  <button class="directionButton" data-direction="top">Top</button>
+  <button class="directionButton" data-direction="bottom">Bottom</button>
+  <button class="directionButton" data-direction="front">Front</button>
+  <button class="directionButton" data-direction="back">Back</button>
+  <script src="script.js"></script>
+</body>
+</html>
